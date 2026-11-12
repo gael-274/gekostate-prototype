@@ -7,7 +7,7 @@ This repo holds the clickable prototype and the planning docs. The production bu
 ## Preview
 
 Every push to `main` deploys the prototype to GitHub Pages (see `.github/workflows/pages.yml`).
-Once Pages is on, the site lives at `https://<your-github-username>.github.io/<repo-name>/`.
+The site lives at https://gael-274.github.io/gekostate-prototype/.
 
 Each build step has its own link. Add the part after `#` to the site address:
 
