@@ -39,6 +39,6 @@ To preview locally without GitHub, open `prototype/index.html` in a browser (an 
 ## Roadmap
 
 1. Sign off the prototype look and the open policy numbers in the build log.
-2. Shop-by-Anime franchise pages (20 series).
+2. ~~Shop-by-Anime franchise pages (20 series).~~ Done: `#anime-<slug>`, e.g. `#anime-one-piece`.
 3. Launch blockers from the benchmark: search, accounts, reviews, returns, live payments, courier tracking, support.
 4. Production scaffold: Turborepo with `apps/web` (Next.js 15), `apps/api` (NestJS), `packages/ui`, `packages/db`.

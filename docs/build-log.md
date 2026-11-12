@@ -25,6 +25,19 @@
 - Sandbox gateway with approve/decline; decline keeps the cart. Order page with 8-step tracking timeline, EFT variant, guest "save to account".
 - Tested end to end on desktop and a 390 px phone.
 
+## 2026-11-12 — Step 7: Shop-by-Anime franchise pages
+- Routes `#anime-<slug>` for all 20 series (e.g. `#anime-one-piece`, `#anime-demon-slayer`, `#anime-jojos-bizarre-adventure`). Unknown slugs fall back to the homepage series rail.
+- Hero: series name, one-line tagline, product count, original background built from the series' colour pair in `animeArt()` plus a repeating kanji pattern. No character art, logos or screenshots.
+- Department chips (All, Apparel, Collectibles, Wall Art, Accessories, Home, Manga) with counts. A chip with nothing in stock shows an empty state with "Notify me".
+- Rows, reusing `cardHTML()` with department card skins: Featured (3D first, then limited, pre-order, price), New arrivals (new and pre-order pieces, kept distinct from Featured), Collectibles, Apparel, Accessories.
+- Series with fewer than 8 products show everything in one grid plus a "Notify me when new stock lands" panel (toast only), instead of rows that would mostly repeat each other.
+- "Start here" strip: the manga Vol. 1 and the cheapest item under R 300, each shown only when it exists (Demon Slayer has a box set but no Vol. 1, so it shows the entry piece only).
+- "Fans also shop": 4 related series, same loose genre group first (battle, dark, sports and life), then by catalogue size.
+- Wiring: the homepage rail links to each page. The "Shop by Anime" mega-menu item is now a button that opens a 20-series panel (Escape or click outside closes it). Product pages link the series eyebrow to its page and show "More from <series>".
+- Data: products carry a `franchise` field, derived from `fr` (plus `One Piece TCG` → One Piece). Added 3–5 sample products each for the 10 series that had fewer than 4 (Bleach, Tokyo Ghoul, My Hero Academia, Black Clover, One Punch Man, Kaiju No. 8, Blue Lock, Haikyuu!!, Hunter x Hunter, JoJo's Bizarre Adventure). Every series now has 4 to 14 products.
+- Card tags now wrap before the wishlist heart, so Pre-order + Limited no longer overlap it on narrow cards.
+- Tested with Playwright in Chrome at 390 px and 1366 px: all 20 series pages, every chip, notify, the menu panel, rail taps, Start-here add-to-cart and "More from" links. No console errors, no sideways page scroll, and the existing department and product pages are unchanged.
+
 ## Benchmark verdict
 - Ahead of Amazon/Takealot for collectors on 3D, category tools, pre-orders, drop limits and gamified loyalty; covers roughly a third of their functional surface.
 - P0 before launch: search, real auth and accounts, live payments with webhooks, courier tracking feeds, verified reviews, self-service returns, help centre and WhatsApp support.

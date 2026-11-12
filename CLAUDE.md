@@ -33,7 +33,7 @@ GEKOSTATE™ ("Collect. Wear. Live Anime.") is an anime marketplace launching in
 - Ask before adding a new paid service or changing a non-negotiable rule above.
 
 ## Next tasks (in order)
-1. Shop-by-Anime franchise pages (20 series) in the prototype.
+1. ~~Shop-by-Anime franchise pages (20 series) in the prototype.~~ Done (Step 7, see build log).
 2. Scaffold the monorepo (`apps/web`, `apps/api`, `packages/*`) with the design tokens from the prototype.
 3. Prisma schema from the Blueprint's 9 domain schemas (identity, catalog, inventory, commerce, payments, fulfilment, loyalty, community, marketplace).
 4. Launch blockers from the benchmark: search, accounts, reviews, returns, live payments (sandbox first), courier tracking, support.

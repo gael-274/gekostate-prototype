@@ -144,7 +144,7 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:
 .card .pic{position:relative;aspect-ratio:1/1;overflow:hidden;display:block}
 .card .pic .art{position:absolute;inset:0;transition:transform .5s}
 .card:hover .pic .art{transform:scale(1.05)}
-.card .tags{position:absolute;left:10px;top:10px;display:flex;gap:6px}
+.card .tags{position:absolute;left:10px;top:10px;right:52px;display:flex;flex-wrap:wrap;gap:6px}
 .tag{font:700 10px/1 var(--f-ui);letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;border-radius:6px;background:rgba(10,15,30,.75)}
 .tag.d3{background:var(--violet);color:#fff}
 .tag.sale{background:var(--red);color:#fff}
@@ -578,6 +578,51 @@ textarea.inp{height:auto;min-height:72px;padding:10px 12px;resize:vertical}
 .kv dt{color:var(--muted)}
 .kv dd{margin:0;text-align:right;font-weight:600}
 
+/* ---------- shop by anime ---------- */
+.mega button{font:600 13px var(--f-body);color:var(--muted);padding:6px 12px;border-radius:999px;white-space:nowrap;transition:color .2s,background .2s}
+.mega button:hover,.mega button[aria-expanded="true"]{color:var(--fg);background:var(--surface)}
+.mega button.on{color:var(--fg);background:var(--surface-2)}
+.anime-panel{border-top:1px solid var(--line);background:rgba(10,15,30,.97);max-height:calc(100vh - 140px);overflow-y:auto}
+.ap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;padding-block:14px 18px}
+.ap-grid a{display:flex;align-items:center;gap:10px;padding:8px;border-radius:12px;transition:background .2s}
+.ap-grid a:hover{background:var(--surface)}
+.ap-grid i{width:34px;height:34px;border-radius:9px;flex:none;border:1px solid var(--line)}
+.ap-grid b{display:block;font:700 13px/1.25 var(--f-body)}
+.ap-grid small{font:500 11px var(--f-ui);color:var(--muted);letter-spacing:.04em}
+.s-hero{background:linear-gradient(90deg,rgba(10,15,30,.9) 0%,rgba(10,15,30,.55) 55%,rgba(10,15,30,.2)),var(--sbg)}
+.s-hero::before{opacity:.35}
+.s-hero .wrap{padding-block:30px 22px}
+.s-hero .big{color:rgba(255,255,255,.14)}
+.s-hero .crumbs a{color:rgba(238,241,248,.8)}
+.s-hero p{color:rgba(238,241,248,.82)}
+.s-pat{position:absolute;inset:-20% -10%;font:800 56px/1.15 var(--f-display);color:rgba(255,255,255,.045);word-break:break-all;transform:rotate(-12deg);pointer-events:none;user-select:none;overflow:hidden}
+.subs .cnt{font:500 11px var(--f-ui);opacity:.7;margin-left:2px}
+.srow{margin-top:36px;min-width:0}
+.srow-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.srow-h h2{font-size:clamp(18px,2.2vw,24px);font-weight:700}
+.prow{display:grid;grid-auto-flow:column;grid-auto-columns:224px;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin;overscroll-behavior-x:contain}
+.prow > .card{scroll-snap-align:start}
+.prow .card .pic,.cgrid.mixed .card .pic{aspect-ratio:var(--ratio,1/1)}
+.starter{margin-top:28px}
+.st-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.st{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line)}
+.st .mini{width:64px;height:64px;border-radius:10px;position:relative;overflow:hidden;display:block}
+.st .mini .g{font-size:30px}
+.st small{display:block;font:600 10px var(--f-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.st b{display:block;font:700 14px/1.3 var(--f-body);margin-top:3px}
+.st .num{font:700 14px var(--f-ui);color:var(--muted)}
+.addmini{font:700 12px var(--f-body);padding:8px 12px;border-radius:8px;border:1px solid var(--line-strong);transition:background .2s,border-color .2s}
+.addmini:hover{background:var(--red);border-color:var(--red)}
+.notify{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px;border-radius:var(--r);border:1px dashed var(--line-strong);background:rgba(124,58,237,.08)}
+.notify b{display:block;font:700 15px var(--f-body)}
+.notify span{font-size:14px;color:var(--muted)}
+.notify .btn,.er-act .btn{height:44px}
+.er-act{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.rel{margin-bottom:12px}
+.rel-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.rel-grid .anime{aspect-ratio:16/10}
+.more-fr{margin-top:48px;min-width:0}
+
 /* mobile tab bar */
 .tabbar{display:none}
 
@@ -627,6 +672,12 @@ textarea.inp{height:auto;min-height:72px;padding:10px 12px;resize:vertical}
   .form-row{grid-template-columns:1fr 1fr}
   .form-row button{grid-column:1/-1}
   .cat-hero .big{font-size:120px;opacity:.7}
+  .s-pat{font-size:40px}
+  .prow{grid-auto-columns:46%;gap:10px}
+  .st-grid{grid-template-columns:1fr}
+  .rel-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .rel-grid .anime{aspect-ratio:4/3}
+  .notify .btn{width:100%}
   .spot{font-size:9px;padding:4px 7px 4px 4px}
   .spot::before{width:9px;height:9px}
   .odds div{grid-template-columns:90px minmax(0,1fr) 36px}
@@ -659,6 +710,7 @@ textarea.inp{height:auto;min-height:72px;padding:10px 12px;resize:vertical}
     </div>
   </div>
   <nav class="wrap mega" id="mega" aria-label="Departments"></nav>
+  <div class="anime-panel" id="animePanel" hidden></div>
 </header>
 
 <main>
@@ -751,6 +803,9 @@ textarea.inp{height:auto;min-height:72px;padding:10px 12px;resize:vertical}
 <!-- ================= CATEGORY ================= -->
 <div id="view-cat" hidden></div>
 
+<!-- ================= SHOP BY ANIME (series landing) ================= -->
+<div id="view-anime" hidden></div>
+
 <!-- ================= PRODUCT ================= -->
 <div id="view-product" hidden>
   <div class="wrap">
@@ -819,6 +874,7 @@ textarea.inp{height:auto;min-height:72px;padding:10px 12px;resize:vertical}
         <div class="fbt" id="fbt"></div>
       </div>
     </div>
+    <section class="more-fr" id="moreFr" hidden></section>
   </div>
 </div>
 </main>
@@ -942,7 +998,16 @@ dept('apparel', { name:'Apparel', k:'服', gl:['服','衣','着','布'], pi:0, h
   ['Caps','Shadow Monarch Dad Cap','Solo Leveling',299,{color:'Black',sizes:['One size']}],
   ['Beanies','Chainsaw Devil Beanie','Chainsaw Man',249,{color:'Red',sizes:['One size']}],
   ['Socks','Forger Family Socks 3-Pack','Spy x Family',199,{color:'White',sizes:['UK 4–7','UK 8–11']}],
-  ['Anime Sneakers','Grand Line Canvas Sneakers','One Piece',899,{color:'White',sizes:['UK 5','UK 6','UK 7','UK 8','UK 9','UK 10','UK 11'],isNew:1}]
+  ['Anime Sneakers','Grand Line Canvas Sneakers','One Piece',899,{color:'White',sizes:['UK 5','UK 6','UK 7','UK 8','UK 9','UK 10','UK 11'],isNew:1}],
+  ['T-Shirts','Soul Reaper Squad Tee','Bleach',399,{color:'Black',fit:'Oversized'}],
+  ['Hoodies','Anteiku Café Hoodie','Tokyo Ghoul',699,{color:'Charcoal',fit:'Regular',isNew:1}],
+  ['T-Shirts','Hero Course Gym Tee','My Hero Academia',349,{color:'White',fit:'Regular'}],
+  ['Hoodies','Black Bulls Robe Hoodie','Black Clover',749,{color:'Black',fit:'Oversized'}],
+  ['T-Shirts','Defense Force Uniform Tee','Kaiju No. 8',399,{color:'Navy',fit:'Regular',isNew:1}],
+  ['T-Shirts','Striker Ego Training Jersey','Blue Lock',549,{color:'Navy',fit:'Regular',isNew:1}],
+  ['T-Shirts','Crows Volleyball Club Tee','Haikyuu!!',349,{color:'Black',fit:'Regular'}],
+  ['T-Shirts','Hunter License Tee','Hunter x Hunter',349,{color:'White',fit:'Regular'}],
+  ['Oversized Tees','Menacing Kanji Oversized Tee',"JoJo's Bizarre Adventure",449,{color:'Black',fit:'Oversized'}]
 ].map(r => { r[4].sizes = r[4].sizes || SZ; return r; }));
 
 /* ---------- 2. Collectibles ---------- */
@@ -963,7 +1028,16 @@ dept('collectibles', { name:'Collectibles', k:'像', gl:['像','宝','魂','玉'
   ['Funko Pops','Itadori Yuji Funko Pop!','Jujutsu Kaisen',299,{scale:'Funko Pop!',h:9.5,brand:'Funko',status:'In stock'}],
   ['Limited Editions','Ryuk and Light 1/8 Diorama','Death Note',2799,{scale:'1/8',h:21,brand:'Studio import',status:'In stock',edition:'500 numbered pieces'}],
   ['Scale Figures','Denji 1/7 Scale Figure','Chainsaw Man',3199,{scale:'1/7',h:26,brand:'Studio import',status:'Pre-order',rel:'2027-04'}],
-  ['Premium Collectibles','Hokage Mantle 1/6 Statue','Naruto',5499,{scale:'1/6',h:31,brand:'Resin studio',status:'Pre-order',rel:'2027-02',edition:'300 numbered pieces'}]
+  ['Premium Collectibles','Hokage Mantle 1/6 Statue','Naruto',5499,{scale:'1/6',h:31,brand:'Resin studio',status:'Pre-order',rel:'2027-02',edition:'300 numbered pieces'}],
+  ['Banpresto','Ichigo Bankai Prize Figure','Bleach',649,{scale:'Non-scale',h:18,brand:'Banpresto',status:'In stock'}],
+  ['Funko Pops','Kaneki Ken Funko Pop!','Tokyo Ghoul',299,{scale:'Funko Pop!',h:9.5,brand:'Funko',status:'In stock'}],
+  ['Banpresto','Deku Full Cowl Prize Figure','My Hero Academia',599,{scale:'Non-scale',h:17,brand:'Banpresto',status:'In stock'}],
+  ['Funko Pops','Saitama Funko Pop!','One Punch Man',299,{scale:'Funko Pop!',h:9.5,brand:'Funko',status:'In stock'}],
+  ['Scale Figures','Kaiju No. 8 1/7 Scale Figure','Kaiju No. 8',2999,{scale:'1/7',h:27,brand:'Studio import',status:'Pre-order',rel:'2027-05'}],
+  ['Banpresto','Isagi Yoichi Prize Figure','Blue Lock',549,{scale:'Non-scale',h:18,brand:'Banpresto',status:'In stock',isNew:1}],
+  ['Funko Pops','Hinata Shoyo Funko Pop!','Haikyuu!!',299,{scale:'Funko Pop!',h:9.5,brand:'Funko',status:'In stock'}],
+  ['Banpresto','Gon and Killua Prize Figure Set','Hunter x Hunter',899,{scale:'Non-scale',h:15,brand:'Banpresto',status:'In stock'}],
+  ['Scale Figures','Stand Pose 1/8 Scale Figure',"JoJo's Bizarre Adventure",2499,{scale:'1/8',h:22,brand:'Studio import',status:'In stock',edition:'800 numbered pieces'}]
 ]);
 
 /* ---------- 3. Wall Art ---------- */
@@ -984,7 +1058,10 @@ dept('wall', { name:'Wall Art', k:'画', gl:['画','絵','龍','月'], pi:2, h:[
   ['Posters','Forger Family Poster','Spy x Family',199,{size:'A2',orient:'Portrait',frame:'Unframed'}],
   ['Wall Scrolls','Bankai Wall Scroll','Bleach',399,{size:'70×100 cm',orient:'Portrait',frame:'Unframed'}],
   ['Framed Artwork','Court Lines Framed Print','Haikyuu!!',749,{size:'A2',orient:'Landscape',frame:'Oak'}],
-  ['Framed Artwork','Notebook Rules Framed Print','Death Note',749,{size:'A2',orient:'Portrait',frame:'White'}]
+  ['Framed Artwork','Notebook Rules Framed Print','Death Note',749,{size:'A2',orient:'Portrait',frame:'White'}],
+  ['Posters','Clover Kingdom Poster','Black Clover',199,{size:'A2',orient:'Portrait',frame:'Unframed'}],
+  ['Posters','Striker Ranking Poster','Blue Lock',199,{size:'A2',orient:'Portrait',frame:'Unframed'}],
+  ['Posters','Menacing Sound-effect Poster',"JoJo's Bizarre Adventure",199,{size:'A2',orient:'Portrait',frame:'Unframed'}]
 ]);
 
 /* ---------- 4. Home & Bedroom ---------- */
@@ -1005,7 +1082,8 @@ dept('home', { name:'Home & Bedroom', k:'家', gl:['家','夢','眠','灯'], pi:
   NEON,
   ['Neon Signs','Red Cloud Neon Sign','Naruto',1399,{room:'Gaming den'}],
   ['Pillows','Cursed Eye Cushion 45×45 cm','Jujutsu Kaisen',299,{room:'Gaming den'}],
-  ['Blankets','Hidden Leaf Fleece Blanket','Naruto',549,{room:'Lounge'}]
+  ['Blankets','Hidden Leaf Fleece Blanket','Naruto',549,{room:'Lounge'}],
+  ['Pillows','OK Face Cushion 45×45 cm','One Punch Man',299,{room:'Lounge'}]
 ]);
 
 /* ---------- 5. Accessories ---------- */
@@ -1027,7 +1105,16 @@ dept('accessories', { name:'Accessories', k:'飾', gl:['飾','鍵','輪','星'],
   ['Phone Cases','Forger Family Phone Case','Spy x Family',299],
   ['Watches','Shinigami Analog Watch','Death Note',899],
   ['Keychains','Titan Shifter Keychain','Attack on Titan',119],
-  ['Bracelets','Cursed Finger Charm Bracelet','Jujutsu Kaisen',169]
+  ['Bracelets','Cursed Finger Charm Bracelet','Jujutsu Kaisen',169],
+  ['Keychains','Hollow Mask Keychain','Bleach',119],
+  ['Necklaces','Centipede Pendant Necklace','Tokyo Ghoul',229],
+  ['Lanyards','Hero License Lanyard','My Hero Academia',129],
+  ['Keychains','Five-Leaf Grimoire Keychain','Black Clover',99],
+  ['Keychains','Defense Force Patch Keychain','Kaiju No. 8',119],
+  ['Bracelets','Ego Number Bracelet','Blue Lock',149],
+  ['Keychains','Volleyball Charm Keychain','Haikyuu!!',99],
+  ['Rings','Spider Emblem Ring','Hunter x Hunter',199],
+  ['Necklaces','Ladybug Pendant Necklace',"JoJo's Bizarre Adventure",229]
 ]);
 
 /* ---------- 6. Gaming ---------- */
@@ -1046,7 +1133,9 @@ dept('gaming', { name:'Gaming', k:'遊', gl:['遊','光','忍','電'], pi:5, h:[
   ['Controller Skins','Capsule Corp PS5 Controller Skin','Dragon Ball',249],
   ['Controller Skins','Survey Corps Xbox Controller Skin','Attack on Titan',249],
   ['Gaming Accessories','Saiyan RGB Headset Stand','Dragon Ball',399,{rgb:'RGB'}],
-  ['Mousepads','Ramen Shop Mousepad','Naruto',149,{mat:'S 25×21 cm'}]
+  ['Mousepads','Ramen Shop Mousepad','Naruto',149,{mat:'S 25×21 cm'}],
+  ['Mousepads','Hero Association Mousepad','One Punch Man',149,{mat:'S 25×21 cm'}],
+  ['Desk Mats','Black Bulls XL Desk Mat','Black Clover',399,{mat:'XL 80×30 cm'}]
 ]);
 
 /* ---------- 7. Manga & Books ---------- */
@@ -1066,7 +1155,15 @@ dept('manga', { name:'Manga & Books', k:'本', gl:['本','巻','読','話'], pi:
   ['Light Novels','Solo Leveling, Vol. 1 (Novel)','Solo Leveling',299,{format:'Paperback'}],
   ['Art Books','Attack on Titan Art Book','Attack on Titan',799,{format:'Hardcover'}],
   ['Manga','Death Note Black Edition, Vol. 1','Death Note',329,{format:'Paperback'}],
-  ['Manga','Kaiju No. 8, Vol. 1','Kaiju No. 8',179,{format:'Paperback'}]
+  ['Manga','Kaiju No. 8, Vol. 1','Kaiju No. 8',179,{format:'Paperback'}],
+  ['Manga','Bleach, Vol. 1','Bleach',179,{format:'Paperback'}],
+  ['Manga','Tokyo Ghoul, Vol. 1','Tokyo Ghoul',179,{format:'Paperback'}],
+  ['Manga','My Hero Academia, Vol. 1','My Hero Academia',179,{format:'Paperback'}],
+  ['Manga','Black Clover, Vol. 1','Black Clover',179,{format:'Paperback'}],
+  ['Manga','One Punch Man, Vol. 1','One Punch Man',179,{format:'Paperback'}],
+  ['Manga','Blue Lock, Vol. 1','Blue Lock',179,{format:'Paperback',isNew:1}],
+  ['Manga','Hunter x Hunter, Vol. 1','Hunter x Hunter',179,{format:'Paperback'}],
+  ['Manga',"JoJo's Bizarre Adventure Part 1, Vol. 1","JoJo's Bizarre Adventure",329,{format:'Hardcover'}]
 ]);
 
 /* ---------- 8. Trading Cards ---------- */
@@ -1128,7 +1225,8 @@ dept('school', { name:'School & Office', k:'学', gl:['学','書','筆','弁'], 
   ['Lunch Boxes','Two-tier Bento Box','GEKOSTATE Originals',299,{glyph:'弁'}],
   ['Lunch Boxes','Peanut Lover Lunch Box','Spy x Family',249],
   ['Mousepads','Chibi Desk Mousepad','GEKOSTATE Originals',129],
-  ['Backpacks','Survey Corps Rolltop Backpack','Attack on Titan',899]
+  ['Backpacks','Survey Corps Rolltop Backpack','Attack on Titan',899],
+  ['Backpacks','Hero Course Backpack','My Hero Academia',699]
 ]);
 
 /* ---------- 11. Car Accessories ---------- */
@@ -1190,6 +1288,35 @@ const NAV = {home:'Home',manga:'Manga',cards:'Cards',school:'School',car:'Car',m
 const DEPT_ORDER = ['apparel','collectibles','wall','home','accessories','gaming','manga','cards','cosplay','school','car','mystery','japan'];
 const TRENDING = ['kitsune','hoodie','neon','scroll','mystery','deskmat','keys','ramen'];
 const ANIME = ['Naruto','One Piece','Bleach','Dragon Ball','Demon Slayer','Attack on Titan','Jujutsu Kaisen','Solo Leveling','Chainsaw Man','Tokyo Ghoul','My Hero Academia','Spy x Family','Black Clover','One Punch Man','Kaiju No. 8','Blue Lock','Haikyuu!!','Hunter x Hunter','Death Note',"JoJo's Bizarre Adventure"];
+/* Shop by Anime: one entry per series, same order as ANIME (index drives the colour pair in animeArt). */
+const S_META = [
+  ['忍','Ninja-way gear: red clouds, headbands and Hidden Leaf pride.','battle'],
+  ['海','Set sail with Straw Hat gear, wanted posters and Grand Line finds.','battle'],
+  ['魂','Soul Reaper blacks, Bankai scrolls and Hollow masks.','battle'],
+  ['龍','Capsule Corp fits, Dragon Radar gadgets and Saiyan power.','battle'],
+  ['刃','Breathing-style prints, checker patterns and Corps blades.','dark'],
+  ['翼','Wings of freedom on hoodies, rugs and statues.','dark'],
+  ['呪','Cursed-energy streetwear and Jujutsu High essentials.','dark'],
+  ['影','Shadow Monarch pieces for every rank-up.','dark'],
+  ['鋸','Devil-hunter gear with a loud, rough edge.','dark'],
+  ['喰','Anteiku café calm with a sharper bite.','dark'],
+  ['英','Hero-course kit for heroes in training.','battle'],
+  ['家','Forger family favourites, peanuts included.','life'],
+  ['葉','Black Bulls robes and grimoire charms.','battle'],
+  ['拳','Hero-for-fun gear, one hit at a time.','battle'],
+  ['怪','Defense Force kit for the next kaiju alert.','dark'],
+  ['蹴','Striker-first gear for egotists on the pitch.','life'],
+  ['跳','Volleyball-club court wear for every jump serve.','life'],
+  ['狩','Hunter License essentials for the next exam.','battle'],
+  ['死','Shinigami notebooks, watches and the rules on the wall.','dark'],
+  ['奇','Menacing poses, bold kanji and Stand-ready style.','dark']
+];
+const seriesSlug = n => slug(n.replace(/['’]/g, ''));
+const SERIES = ANIME.map((name, i) => ({ name, i, slug: seriesSlug(name), k: S_META[i][0], tag: S_META[i][1], genre: S_META[i][2] }));
+const FR_ALIAS = { 'One Piece TCG': 'One Piece' };
+ITEMS.forEach(p => { const f = FR_ALIAS[p.fr] || p.fr; if (ANIME.includes(f)) p.franchise = f; });
+const inSeries = n => ITEMS.filter(p => p.franchise === n);
+const seriesOf = p => p.franchise ? SERIES.find(s => s.name === p.franchise) : null;
 const RANKS = [['Academy Student','R 0',100],['Genin','R 1,000',100],['Chunin','R 3,000',57],['Jonin','R 7,500',0],['Kage','R 15,000',0],['Anime Legend','R 30,000',0]];
 
 /* ================= ART ================= */
@@ -1204,14 +1331,15 @@ function art(p, v=0){
   const gs = ['', 'transform:scaleX(-1);opacity:.7', 'transform:scale(1.9)', 'opacity:.55;transform:translateY(12%) scale(.8)'];
   return `<div class="art" style="background:${bgs[v]}"><div class="g" style="${gs[v]}">${p.glyph}</div></div>`;
 }
-function animeArt(i){
-  const hues = [[0,262],[18,220],[200,260],[30,0],[340,200],[25,210],[270,330],[220,280],[0,30],[300,0],[140,220],[330,190],[100,0],[45,0],[160,260],[210,190],[25,240],[120,40],[0,270],[280,45]];
-  const [h1,h2] = hues[i % hues.length];
+const ANIME_HUES = [[0,262],[18,220],[200,260],[30,0],[340,200],[25,210],[270,330],[220,280],[0,30],[300,0],[140,220],[330,190],[100,0],[45,0],[160,260],[210,190],[25,240],[120,40],[0,270],[280,45]];
+function animeBg(i){
+  const [h1,h2] = ANIME_HUES[i % ANIME_HUES.length];
   const pattern = i % 3 === 0 ? `repeating-linear-gradient(135deg,rgba(255,255,255,.06) 0 2px,transparent 2px 14px)`
     : i % 3 === 1 ? `radial-gradient(circle at 70% 30%,rgba(255,255,255,.18) 0 18%,transparent 19%)`
     : `repeating-radial-gradient(circle at 80% 20%,rgba(255,255,255,.07) 0 2px,transparent 2px 16px)`;
-  return `<div class="art" style="background:${pattern},linear-gradient(200deg,hsl(${h1} 85% 55% / .85),hsl(${h2} 70% 22%) 70%,#0A0F1E)"></div>`;
+  return `${pattern},linear-gradient(200deg,hsl(${h1} 85% 55% / .85),hsl(${h2} 70% 22%) 70%,#0A0F1E)`;
 }
+function animeArt(i){ return `<div class="art" style="background:${animeBg(i)}"></div>`; }
 function wallArtStyle(p){
   const land = p.orient === 'Landscape';
   const ins = land ? '24% 12%' : '12% 22%';
@@ -1282,8 +1410,10 @@ function addBundle(ids, off){
 }
 
 /* ================= HOME ================= */
-$('#mega').innerHTML = `<a href="#anime">Shop by Anime</a>` + DEPT_ORDER.map(k => `<a href="#c-${k}" data-nav="${k}">${NAV[k]||D[k].name}</a>`).join('') + `<a href="#drops" class="hot">Drops</a>`;
-$('#animeRail').innerHTML = ANIME.map((n,i) => `<a class="anime" href="#anime" data-anime="${esc(n)}">${animeArt(i)}<b>${esc(n)}</b><small>Shop the series</small></a>`).join('');
+$('#mega').innerHTML = `<button type="button" id="animeBtn" aria-expanded="false" aria-controls="animePanel">Shop by Anime <span aria-hidden="true">▾</span></button>` + DEPT_ORDER.map(k => `<a href="#c-${k}" data-nav="${k}">${NAV[k]||D[k].name}</a>`).join('') + `<a href="#drops" class="hot">Drops</a>`;
+$('#animePanel').innerHTML = `<div class="wrap"><div class="ap-grid">${SERIES.map(s => `<a href="#anime-${s.slug}"><i style="background:${animeBg(s.i)}"></i><span><b>${esc(s.name)}</b><small>${inSeries(s.name).length} products</small></span></a>`).join('')}</div></div>`;
+$('#animeRail').innerHTML = SERIES.map(s => `<a class="anime" href="#anime-${s.slug}">${animeArt(s.i)}<b>${esc(s.name)}</b><small>Shop the series</small></a>`).join('');
+function setAnimePanel(open){ const p = $('#animePanel'), b = $('#animeBtn'); if (!p || !b) return; p.hidden = !open; b.setAttribute('aria-expanded', String(open)); }
 $('#cats').innerHTML = DEPT_ORDER.map(k => `<a class="cat" href="#c-${k}"><span class="k">${D[k].k}</span><span><b>${D[k].name}</b><small>${inDept(k).length} products</small></span></a>`).join('');
 $('#ranks').innerHTML = RANKS.map(([n,s,f],i) => `<div class="rk${i===1?' now':''}"><div class="bar"><i style="width:${f}%"></i></div><b>${n}</b><small class="num">${s}</small></div>`).join('');
 function renderHomeGrid(){ $('#grid').innerHTML = TRENDING.map(id => cardHTML(byId(id))).join(''); }
@@ -1396,6 +1526,91 @@ function setFilter(k, v, exclusive){
     else set.has(v) ? set.delete(v) : set.add(v);
   }
   renderResults();
+}
+
+/* ================= SHOP BY ANIME ================= */
+const S_TABS = [['all','All'],['apparel','Apparel'],['collectibles','Collectibles'],['wall','Wall Art'],['accessories','Accessories'],['home','Home'],['manga','Manga']];
+const S_FEW = 8; // below this many products a series page shows everything in one grid plus "Notify me"
+let ss = null;  // { s: series, tab }
+const featuredSort = (a,b) => (!!b.model - !!a.model) || (!!b.edition - !!a.edition) || ((b.status==='Pre-order') - (a.status==='Pre-order')) || (!!b.isNew - !!a.isNew) || b.price - a.price;
+function seriesStarters(items){
+  const vol1 = items.find(p => p.cat === 'manga' && /Vol\. 1\b/.test(p.name));
+  const entry = items.filter(p => p.price < 300 && p !== vol1 && p.type !== 'Single').sort((a,b) => a.price - b.price || a.order - b.order)[0];
+  return [vol1 && ['Read from Vol. 1', vol1], entry && ['Entry piece under R 300', entry]].filter(Boolean);
+}
+function relatedSeries(s){
+  const n = x => inSeries(x.name).length;
+  return SERIES.filter(x => x !== s).sort((a,b) => ((b.genre===s.genre) - (a.genre===s.genre)) || n(b) - n(a) || a.i - b.i).slice(0, 4);
+}
+function rowHTML(title, list){
+  if (!list.length) return '';
+  return `<section class="srow"><div class="srow-h"><h2>${title}</h2><span class="muted num">${list.length}</span></div><div class="prow">${list.map(p => cardHTML(p, {skin:true})).join('')}</div></section>`;
+}
+const notifyHTML = (s, lead) => `<div class="notify"><div><b>${lead}</b><span>New ${esc(s.name)} stock lands with each drop. We will tell you first.</span></div><button class="btn btn-ghost" data-notify="${esc(s.name)}">Notify me when new stock lands</button></div>`;
+
+function renderSeries(sl){
+  const s = SERIES.find(x => x.slug === sl);
+  if (!s) { location.hash = 'anime'; return; }
+  ss = { s, tab: 'all' };
+  const items = inSeries(s.name);
+  const n3d = items.filter(p => p.model).length, npre = items.filter(p => p.status === 'Pre-order').length;
+  const [h1, h2] = ANIME_HUES[s.i % ANIME_HUES.length];
+  document.title = `${s.name} · Shop by Anime · GEKOSTATE`;
+  const starters = seriesStarters(items);
+  $('#view-anime').innerHTML = `
+  <section class="cat-hero s-hero" style="--h1:hsl(${h1} 85% 55%);--h2:hsl(${h2} 70% 35%);--sbg:${animeBg(s.i)}">
+    <div class="s-pat" aria-hidden="true">${s.k.repeat(120)}</div>
+    <div class="wrap">
+      <div class="big" aria-hidden="true">${s.k}</div>
+      <nav class="crumbs" style="padding:0" aria-label="Breadcrumb"><a href="#home">Home</a><span>/</span><a href="#anime">Shop by Anime</a><span>/</span><span>${esc(s.name)}</span></nav>
+      <h1>${esc(s.name)}</h1>
+      <p>${esc(s.tag)}</p>
+      <div class="stats"><span class="chip">${items.length} products</span>${n3d ? `<span class="chip"><span class="dot"></span>${n3d} in 3D</span>` : ''}${npre ? `<span class="chip">${npre} pre-order${npre > 1 ? 's' : ''}</span>` : ''}<span class="chip">Free delivery over R 750</span></div>
+      <div class="subs" role="group" aria-label="${esc(s.name)} departments">
+        ${S_TABS.map(([k,l]) => { const c = k === 'all' ? items.length : items.filter(p => p.cat === k).length; return `<button data-fc="${k}" aria-pressed="${k === 'all'}">${l} <span class="cnt">${c}</span></button>`; }).join('')}
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    ${starters.length ? `<section class="starter" aria-label="Start here"><h2 class="h3s">Start here</h2><div class="st-grid">${starters.map(([lbl, p]) => `
+      <div class="st"><a class="mini" href="#product-${p.id}" aria-hidden="true" tabindex="-1">${art(p)}</a>
+        <div><small>${lbl}</small><a href="#product-${p.id}"><b>${esc(p.name)}</b></a><span class="num">${R(p.price)}</span></div>
+        <button class="addmini" data-add="${p.id}" aria-label="Add ${esc(p.name)} to cart">Add</button></div>`).join('')}</div></section>` : ''}
+    <div id="sMain"></div>
+    <section class="srow rel" aria-label="Related series"><div class="srow-h"><h2>Fans also shop</h2><a class="link" href="#anime">All 20 series →</a></div>
+      <div class="rel-grid">${relatedSeries(s).map(x => `<a class="anime" href="#anime-${x.slug}">${animeArt(x.i)}<b>${esc(x.name)}</b><small>${inSeries(x.name).length} products</small></a>`).join('')}</div>
+    </section>
+  </div>`;
+  renderSeriesMain();
+}
+function renderSeriesMain(){
+  const { s, tab } = ss, items = inSeries(s.name);
+  $$('#view-anime [data-fc]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fc === tab)));
+  let html;
+  if (tab !== 'all'){
+    const label = S_TABS.find(t => t[0] === tab)[1], d = D[tab];
+    const list = items.filter(p => p.cat === tab).sort(featuredSort);
+    html = `<section class="srow"><div class="srow-h"><h2>${esc(s.name)} ${label.toLowerCase()}</h2><span class="muted num">${list.length} of ${items.length}</span></div>`
+      + (list.length ? `<div class="cgrid c${d.card.cols}">${list.map(p => cardHTML(p, {skin:true})).join('')}</div>`
+        : `<div class="empty-res"><b style="color:var(--fg)">No ${esc(s.name)} ${label.toLowerCase()} yet.</b>It is on the list for upcoming drops.<div class="er-act"><button class="btn btn-ghost" data-notify="${esc(s.name)}">Notify me when new stock lands</button><button class="btn btn-ghost" data-fc="all">See all ${items.length}</button></div></div>`)
+      + `</section>`;
+  } else if (items.length < S_FEW){
+    html = `<section class="srow"><div class="srow-h"><h2>Everything ${esc(s.name)}</h2><span class="muted num">${items.length}</span></div>
+      <div class="cgrid c4 mixed">${items.slice().sort(featuredSort).map(p => cardHTML(p, {skin:true})).join('')}</div>
+      ${notifyHTML(s, `Only ${items.length} ${esc(s.name)} pieces so far`)}</section>`;
+  } else {
+    const by = k => items.filter(p => p.cat === k).sort(featuredSort);
+    const isFresh = p => p.isNew || p.status === 'Pre-order';
+    const fresh = items.filter(isFresh).sort(featuredSort);
+    let feat = items.filter(p => !isFresh(p)).sort(featuredSort).slice(0, 8);
+    if (feat.length < 4) feat = feat.concat(fresh.slice(0, 4 - feat.length)); // keep Featured populated; New arrivals stays distinct otherwise
+    html = rowHTML('Featured', feat)
+      + rowHTML('New arrivals', fresh.filter(p => !feat.includes(p)))
+      + rowHTML('Collectibles', by('collectibles'))
+      + rowHTML('Apparel', by('apparel'))
+      + rowHTML('Accessories', by('accessories'));
+  }
+  $('#sMain').innerHTML = html;
 }
 
 /* ================= CATEGORY MODULES ================= */
@@ -1675,6 +1890,13 @@ function renderProduct(id){
   $('#fbt').innerHTML = set.map((q,i) => `<label><input type="checkbox" checked data-fbt="${q.id}" ${i===0?'disabled':''}><span class="mini">${art(q)}</span><span class="t">${i===0?'This item: ':''}${esc(q.name)}</span><span class="p num">${R(q.price)}</span></label>`).join('')
     + `<div class="fbt-total"><span class="muted">Total for <span id="fbtN">3</span> items</span><b class="num" id="fbtT"></b><button class="btn btn-ghost" id="fbtAdd" style="width:100%">Add selected to cart</button></div>`;
   calcFbt();
+  const s = seriesOf(p), mf = $('#moreFr');
+  mf.hidden = !s;
+  if (s){
+    const more = inSeries(s.name).filter(x => x.id !== p.id).sort(featuredSort).slice(0, 4);
+    mf.innerHTML = `<div class="srow-h"><h2 class="h3s" style="margin:0">More from ${esc(s.name)}</h2><a class="link" href="#anime-${s.slug}">Shop all ${inSeries(s.name).length} →</a></div>`
+      + (more.length ? `<div class="prow">${more.map(x => cardHTML(x, {skin:true})).join('')}</div>` : '');
+  } else mf.innerHTML = '';
 }
 function renderBuy(){
   const p = cur, d = D[p.cat], price = curPrice();
@@ -1692,7 +1914,7 @@ function renderBuy(){
     return `<div class="opt"><h4>${g.label} <span>${esc(v.name)}</span></h4>${ctrl}</div>`;
   }).join('');
   $('#buy').innerHTML = `
-    <div class="meta-row"><span class="eyebrow" style="color:var(--violet-soft)">${esc(p.fr)}</span><span class="auth">✓ Verified stock</span>${p.model?'<span class="tag d3">3D</span>':''}</div>
+    <div class="meta-row">${seriesOf(p) ? `<a class="eyebrow" style="color:var(--violet-soft)" href="#anime-${seriesOf(p).slug}" title="More from ${esc(p.franchise)}">${esc(p.fr)}</a>` : `<span class="eyebrow" style="color:var(--violet-soft)">${esc(p.fr)}</span>`}<span class="auth">✓ Verified stock</span>${p.model?'<span class="tag d3">3D</span>':''}</div>
     <h1>${esc(p.name)}</h1>
     <div class="meta-row muted" style="font-size:13px"><a class="link" href="#c-${p.cat}">${d.name}</a> · ${esc(p.sub)} · new listing, be the first to review</div>
     <div>
@@ -1744,15 +1966,18 @@ document.addEventListener('click', e => {
   else if (t.dataset.wish) { e.preventDefault(); toggleWish(t.dataset.wish); }
   else if (t.dataset.rm !== undefined) { cart.splice(+t.dataset.rm,1); renderCart(); }
   else if (t.dataset.close !== undefined) closeCart();
-  else if (t.dataset.anime) { toast(`${t.dataset.anime} gets its own landing page in the next build`); }
+  else if (t.id === 'animeBtn') { setAnimePanel($('#animePanel').hidden); }
+  else if (t.dataset.notify) { toast(`Notify me is on for ${t.dataset.notify}. Nothing is sent in the prototype.`); }
   else if (t.dataset.bundle) { addBundle(t.dataset.bundle.split(','), +t.dataset.off); }
   else if (t.dataset.act === 'wish') { e.preventDefault(); toast(wish.size ? `${wish.size} saved item${wish.size>1?'s':''} in your wishlist` : 'Tap the heart on any product to save it'); }
 });
 $('#cartBtn').onclick = openCart;
 $('#wishBtn').onclick = () => toast(wish.size ? `${wish.size} saved item${wish.size>1?'s':''} in your wishlist` : 'Tap the heart on any product to save it');
 $('#closeCart').onclick = closeCart; $('#scrim').onclick = closeCart;
+document.addEventListener('click', e => { if (!$('#animePanel').hidden && !e.target.closest('#animePanel,#animeBtn')) setAnimePanel(false); });
+$('#view-anime').addEventListener('click', e => { const b = e.target.closest('[data-fc]'); if (b && ss) { ss.tab = b.dataset.fc; renderSeriesMain(); } });
 document.addEventListener('keydown', e => {
-  if (e.key==='Escape') closeCart();
+  if (e.key==='Escape') { closeCart(); if (!$('#animePanel').hidden) { setAnimePanel(false); $('#animeBtn').focus(); } }
   if (e.key==='/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); $('#q').focus(); }
 });
 $('#checkout').onclick = () => { if (!cart.length) return toast('Add something to your cart first'); closeCart(); location.hash = 'checkout'; };
@@ -2369,14 +2594,16 @@ $('#view-order').addEventListener('submit', e => { e.preventDefault(); if (e.tar
 /* ================= ROUTER ================= */
 function route(){
   const h = decodeURIComponent(location.hash.slice(1)) || 'home';
-  const view = h.startsWith('product-') ? 'product' : h.startsWith('c-') ? 'cat' : h==='checkout' ? 'checkout' : h==='order' ? 'order' : 'home';
-  $('#view-home').hidden = view!=='home'; $('#view-product').hidden = view!=='product'; $('#view-cat').hidden = view!=='cat';
+  const view = h.startsWith('product-') ? 'product' : h.startsWith('c-') ? 'cat' : h.startsWith('anime-') ? 'anime' : h==='checkout' ? 'checkout' : h==='order' ? 'order' : 'home';
+  $('#view-home').hidden = view!=='home'; $('#view-product').hidden = view!=='product'; $('#view-cat').hidden = view!=='cat'; $('#view-anime').hidden = view!=='anime';
+  setAnimePanel(false); $('#animeBtn').classList.toggle('on', view==='anime');
   $('#view-checkout').hidden = view!=='checkout'; $('#view-order').hidden = view!=='order';
   $$('#mega a').forEach(a => a.classList.toggle('on', a.getAttribute('href')==='#'+h));
   $$('.tabbar a').forEach(a => a.classList.toggle('on', !a.dataset.act && (a.getAttribute('href') === '#'+h || (view!=='home' && a.getAttribute('href')==='#anime') || (h==='home' && a.getAttribute('href')==='#home'))));
   closeCart();
   if (view === 'product'){ renderProduct(h.slice(8)); window.scrollTo(0,0); }
   else if (view === 'cat'){ renderCat(h.slice(2)); window.scrollTo(0,0); }
+  else if (view === 'anime'){ renderSeries(h.slice(6)); window.scrollTo(0,0); }
   else if (view === 'checkout'){ document.title = 'Checkout · GEKOSTATE'; renderCheckout(); window.scrollTo(0,0); }
   else if (view === 'order'){ document.title = 'Order confirmed · GEKOSTATE'; renderOrder(); window.scrollTo(0,0); }
   else {
